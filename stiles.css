@@ -251,3 +251,46 @@ nav{
   .chat-header{ padding: 0 4%; }
   .messages, .choices{ padding-left: 4%; padding-right: 4%; }
 }
+/* Estilos para el Mapa Táctico */
+.tactical-map-section {
+  background: #121212;
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 1200px;
+}
+
+.map-header-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #f3a804;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 8px;
+}
+
+.spoiler-badge {
+  color: #ff5a5a;
+  font-weight: bold;
+}
+
+.map-container {
+  width: 100%;
+  overflow-x: auto;
+  text-align: center;
+  background: #000;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.tactical-map-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
