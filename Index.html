@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enlace // Red de Contactos</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stiles.css">
+</head>
+<body>
+
+  <!-- ============ ENTRADA: TERMINAL DE ARRANQUE ============ -->
+  <div id="boot" class="boot-screen">
+    <div class="boot-box">
+      <div id="boot-lines" class="boot-lines"></div>
+      <div id="boot-cursor" class="boot-cursor">_</div>
+    </div>
+  </div>
+  <!-- ENCABEZADO DE LA INTERFAZ -->
+<header class="main-header">
+  <div class="logo-area">
+    <h1>THE FIRES RISES // HISTORIC</h1>
+    <p>RED PRIVADA DE CONTACTOS // DARK ZONE</p>
+  </div>
+  <div class="header-stats" id="contactCount">0 contactos cargados</div>
+</header>
+
+  <!-- ============ VISTA PRINCIPAL: CUADRÍCULA DE CONTACTOS ============ -->
+  <div id="main-view">
+    <nav class="chevron-bg">
+      <div class="logo-area">
+        <a class="logo" href="#">Enlace</a>
+        <span class="slogan">Red privada de contactos // Dark Zone</span>
+      </div>
+    </nav>
+
+    <section class="contacts-section" id="contactos">
+      <div class="contacts-header">
+        <h2>Contactos disponibles</h2>
+        <span id="contactCount">0 contactos cargados</span>
+      </div>
+      <div class="contacts-grid" id="contactsGrid"></div>
+    </section>
+  </div>
+
+  <!-- ============ VENTANAS DE CHAT (una por contacto, generadas por JS) ============ -->
+  <div id="chat-container"></div>
+
+
+<script src="JavaScript.js"></script>
+</body>
+</html>
