@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENLACE // RED PRIVADA</title>
+  <title>ENLACE // RED PRIVADA DE CONTACTOS</title>
+  <!-- Verifica que el archivo CSS se llame exacto como aquí (stiles.css o styles.css) -->
   <link rel="stylesheet" href="stiles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -32,16 +30,16 @@
     <div class="hero-content">
       <div class="news-modal-card">
         <div class="news-modal-header">
-          <span class="news-title-tag">BOLETÍN OPERATIVO // ULTIMAS NOTICIAS</span>
-          <button class="news-close-btn" aria-label="Cerrar noticias">✕</button>
+          <span class="news-title-tag">BOLETÍN OPERATIVO // ÚLTIMAS NOTICIAS</span>
+          <button class="news-close-btn" aria-label="Cerrar noticias">X</button>
         </div>
         <div class="news-modal-body">
-          <h1 class="news-headline">OPERACIÓN ZONA PROHIBIDA</h1>
+          <h1>OPERACIÓN ZONA PROHIBIDA</h1>
           <div class="news-map-bg-wrapper">
-            <img src="Externo/Mapa.jpg" alt="Mapa Táctico" class="news-bg-map-img" onerror="this.style.display='none';">
+            <img src="Externo/mapa.png" alt="Mapa Táctico" class="news-bg-map-img" onerror="this.style.display='none';">
             <div class="news-overlay-text">
               <span class="news-faction-badge">GNSSK</span>
-              <p>Escuadrón Lobo Blanco tomó zonas prohibidas clave ¡Zona objetivo capturada con éxito!</p>
+              <p>Sangvis Ferri (SF) tomó zonas prohibidas clave. ¡Zona objetivo capturada con éxito!</p>
             </div>
           </div>
         </div>
@@ -54,41 +52,27 @@
 
   <!-- SECCIÓN PRINCIPAL // CONTACTOS -->
   <main id="main-view">
-    <nav>
-      <div class="logo-area">
-        <a href="#" class="logo">ENLACE</a>
-        <span class="slogan">RED PRIVADA DE CONTACTOS // DARK ZONE</span>
-      </div>
-    </nav>
+    <div class="contacts-header">
+      <h2>CONTACTOS DISPONIBLES</h2>
+      <span id="contactCount">10 contactos cargados</span>
+    </div>
 
-    <section class="contacts-section">
-      <div class="contacts-header">
-        <h2>CONTACTOS DISPONIBLES</h2>
-        <span id="contactCount">10 contactos cargados</span>
-      </div>
-
-      <div class="contacts-grid" id="contactsGrid">
-        <!-- Generado dinámicamente desde JavaScript -->
-      </div>
-    </section>
+    <!-- Contenedor donde JS inyectará las tarjetas -->
+    <div id="contactsGrid" class="contacts-grid"></div>
   </main>
 
-  <!-- MODAL DE TIENDA -->
-  <div class="shop-modal-overlay" id="shop-modal">
-    <div class="shop-modal-container">
-      <div class="shop-header">
-        <h3 id="shop-title">MERCADO DE SUMINISTROS</h3>
-        <button class="shop-close-btn" onclick="closeShop()">✕</button>
-      </div>
-      <div class="shop-body" id="shop-items-grid">
-        <!-- Ítems de la tienda agregados dinámicamente -->
-      </div>
+  <!-- MODAL DE CHAT Y TIENDA -->
+  <div id="chat-container"></div>
+  
+  <div id="shop-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal-btn" onclick="closeShop()">X</button>
+      <h3 id="shop-title">MERCADO</h3>
+      <div id="shop-items-grid" class="shop-grid"></div>
     </div>
   </div>
 
-  <!-- VENTANA DE CHAT CONTENEDOR -->
-  <div id="chat-container"></div>
-
+  <!-- Verifica el nombre exacto de tu archivo JS en GitHub -->
   <script src="JavaScript.js"></script>
 </body>
 </html>
