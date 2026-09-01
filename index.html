@@ -1,63 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enlace // Red de Contactos</title>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stiles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENLACE // RED PRIVADA</title>
+  <link rel="stylesheet" href="stiles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- ============ ENTRADA: TERMINAL DE ARRANQUE ============ -->
+  <!-- PANTALLA DE CARGA / BOOT -->
   <div id="boot" class="boot-screen">
     <div class="boot-box">
       <div id="boot-lines" class="boot-lines"></div>
-      <div id="boot-cursor" class="boot-cursor">_</div>
+      <span class="boot-cursor">█</span>
     </div>
   </div>
-  <!-- ENCABEZADO DE LA INTERFAZ -->
-<header class="main-header">
-  <div class="logo-area">
-    <h1>THE FIRES RISES // HISTORIC</h1>
-    <p>RED PRIVADA DE CONTACTOS // DARK ZONE</p>
-  </div>
-  <div class="header-stats" id="contactCount">0 contactos cargados</div>
-</header>
 
-<!-- SECCIÓN DE MAPA TÁCTICO GLOBAL (GCRRS) -->
-<section class="tactical-map-section">
-  <div class="map-header-tag">
-    <span>// INTEL: GLOBAL COLLAPSE RADIATION RADIOLOGICAL SURVEY (GCRRS)</span>
-    <span class="spoiler-badge">***SPOILER WARNING***</span>
-  </div>
-  <div class="map-container">
-    <img src="Externo/mapa.png" alt="Mapa Táctico New Collapse Era" class="tactical-map-img">
-  </div>
-</section>
-
-  <!-- ============ VISTA PRINCIPAL: CUADRÍCULA DE CONTACTOS ============ -->
-  <div id="main-view">
-    <nav class="chevron-bg">
+  <!-- HERO & NOTICIAS -->
+  <section id="hero-section">
+    <header class="main-header">
       <div class="logo-area">
-        <a class="logo" href="#">Enlace</a>
-        <span class="slogan">Red privada de contactos // Dark Zone</span>
+        <a href="#" class="logo">ENLACE</a>
+        <span class="slogan">RED PRIVADA DE CONTACTOS // DARK ZONE</span>
+      </div>
+      <div class="header-stats" id="contactCountTop">10 contactos cargados</div>
+    </header>
+
+    <div class="hero-content">
+      <div class="news-modal-card">
+        <div class="news-modal-header">
+          <span class="news-title-tag">BOLETÍN OPERATIVO // ULTIMAS NOTICIAS</span>
+          <button class="news-close-btn" aria-label="Cerrar noticias">✕</button>
+        </div>
+        <div class="news-modal-body">
+          <h1 class="news-headline">OPERACIÓN ZONA PROHIBIDA</h1>
+          <div class="news-map-bg-wrapper">
+            <img src="Externo/Mapa.jpg" alt="Mapa Táctico" class="news-bg-map-img" onerror="this.style.display='none';">
+            <div class="news-overlay-text">
+              <span class="news-faction-badge">GNSSK</span>
+              <p>Escuadrón Lobo Blanco tomó zonas prohibidas clave ¡Zona objetivo capturada con éxito!</p>
+            </div>
+          </div>
+        </div>
+        <div class="news-modal-footer">
+          <span class="scroll-down-hint">↓ DESLIZA PARA ACCEDER A LA RED DE CONTACTOS ↓</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PRINCIPAL // CONTACTOS -->
+  <main id="main-view">
+    <nav>
+      <div class="logo-area">
+        <a href="#" class="logo">ENLACE</a>
+        <span class="slogan">RED PRIVADA DE CONTACTOS // DARK ZONE</span>
       </div>
     </nav>
 
-    <section class="contacts-section" id="contactos">
+    <section class="contacts-section">
       <div class="contacts-header">
-        <h2>Contactos disponibles</h2>
-        <span id="contactCount">0 contactos cargados</span>
+        <h2>CONTACTOS DISPONIBLES</h2>
+        <span id="contactCount">10 contactos cargados</span>
       </div>
-      <div class="contacts-grid" id="contactsGrid"></div>
+
+      <div class="contacts-grid" id="contactsGrid">
+        <!-- Generado dinámicamente desde JavaScript -->
+      </div>
     </section>
+  </main>
+
+  <!-- MODAL DE TIENDA -->
+  <div class="shop-modal-overlay" id="shop-modal">
+    <div class="shop-modal-container">
+      <div class="shop-header">
+        <h3 id="shop-title">MERCADO DE SUMINISTROS</h3>
+        <button class="shop-close-btn" onclick="closeShop()">✕</button>
+      </div>
+      <div class="shop-body" id="shop-items-grid">
+        <!-- Ítems de la tienda agregados dinámicamente -->
+      </div>
+    </div>
   </div>
 
-  <!-- ============ VENTANAS DE CHAT (una por contacto, generadas por JS) ============ -->
+  <!-- VENTANA DE CHAT CONTENEDOR -->
   <div id="chat-container"></div>
 
-
-<script src="JavaScript.js"></script>
+  <script src="JavaScript.js"></script>
 </body>
 </html>
