@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ENLACE // RED PRIVADA DE CONTACTOS</title>
-  <!-- Verifica que el archivo CSS se llame exacto como aquí (stiles.css o styles.css) -->
+  <title>ENLACE // RED PRIVADA</title>
   <link rel="stylesheet" href="stiles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,22 +26,24 @@
         <a href="#" class="logo">ENLACE</a>
         <span class="slogan">RED PRIVADA DE CONTACTOS // DARK ZONE</span>
       </div>
-      <div class="header-stats" id="contactCountTop">10 contactos cargados</div>
+      <div class="header-tools">
+        <button class="tactical-btn" onclick="openMap()">[ VISOR DE RUTAS ]</button>
+      </div>
     </header>
 
     <div class="hero-content">
       <div class="news-modal-card">
         <div class="news-modal-header">
-          <span class="news-title-tag">BOLETÍN OPERATIVO // ÚLTIMAS NOTICIAS</span>
-          <button class="news-close-btn" aria-label="Cerrar noticias">X</button>
+          <span class="news-title-tag">BOLETÍN OPERATIVO // ULTIMAS NOTICIAS</span>
+          <button class="news-close-btn" aria-label="Cerrar noticias">✕</button>
         </div>
         <div class="news-modal-body">
-          <h1>OPERACIÓN ZONA PROHIBIDA</h1>
+          <h1 class="news-headline">OPERACIÓN ZONA PROHIBIDA</h1>
           <div class="news-map-bg-wrapper">
             <img src="Externo/mapa.png" alt="Mapa Táctico" class="news-bg-map-img" onerror="this.style.display='none';">
             <div class="news-overlay-text">
-              <span class="news-faction-badge">GNSSK</span>
-              <p>Sangvis Ferri (SF) tomó zonas prohibidas clave. ¡Zona objetivo capturada con éxito!</p>
+              <span class="news-faction-badge">PMC SF</span>
+              <p>Sanvis Ferri tomó zonas prohibidas clave ¡Zona objetivo capturada con éxito!</p>
             </div>
           </div>
         </div>
@@ -52,27 +56,113 @@
 
   <!-- SECCIÓN PRINCIPAL // CONTACTOS -->
   <main id="main-view">
-    <div class="contacts-header">
-      <h2>CONTACTOS DISPONIBLES</h2>
-      <span id="contactCount">10 contactos cargados</span>
-    </div>
+    <nav>
+      <div class="logo-area">
+        <a href="#" class="logo">ENLACE</a>
+        <span class="slogan">RED PRIVADA DE CONTACTOS // DARK ZONE</span>
+      </div>
+    </nav>
 
-    <!-- Contenedor donde JS inyectará las tarjetas -->
-    <div id="contactsGrid" class="contacts-grid"></div>
+    <section class="contacts-section">
+      <div class="contacts-header">
+        <h2>CONTACTOS DISPONIBLES</h2>
+        <span id="contactCount">10 contactos cargados</span>
+      </div>
+      <div class="contacts-grid" id="contactsGrid">
+        <!-- Generado dinámicamente -->
+      </div>
+    </section>
+
+    <!-- PÁNEl DE FACCIONES (ALIADOS / ENEMIGOS) -->
+    <section class="factions-section">
+      <div class="factions-header">
+        <h2>REPORTE DE INTELIGENCIA: FACCIONES</h2>
+      </div>
+      <div class="factions-container">
+        <!-- Aliados -->
+        <div class="faction-group">
+          <span class="faction-label allies">ALIADOS // CONFIRMADOS</span>
+          <div class="faction-list">
+            <div class="faction-item"><img src="Externo/AR TEAM.jpg" alt="AR TEAM"><span class="faction-name">AR TEAM</span></div>
+            <div class="faction-item"><img src="Externo/404.jpg" alt="404"><span class="faction-name">404</span></div>
+            <div class="faction-item"><img src="Externo/Kamona.png" alt="Kamona"><span class="faction-name">KAMONA</span></div>
+            <div class="faction-item"><img src="Externo/DEFY_Logo.png" alt="DEFY"><span class="faction-name">DEFY</span></div>
+            <div class="faction-item"><img src="Externo/Griffin.jpg" alt="Griffin"><span class="faction-name">GRIFFIN</span></div>
+          </div>
+        </div>
+        <!-- Enemigos -->
+        <div class="faction-group">
+          <span class="faction-label enemies">HOSTILES // PELIGRO EXTREMO</span>
+          <div class="faction-list">
+            <div class="faction-item"><img src="Externo/MNST.jpg" alt="MNST"><span class="faction-name hostile">MNST</span></div>
+            <div class="faction-item"><img src="Externo/BG.jpg" alt="BG"><span class="faction-name hostile">BG</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- MODAL DE CHAT Y TIENDA -->
-  <div id="chat-container"></div>
-  
-  <div id="shop-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="close-modal-btn" onclick="closeShop()">X</button>
-      <h3 id="shop-title">MERCADO</h3>
-      <div id="shop-items-grid" class="shop-grid"></div>
+  <!-- MODAL DE MAPA TÁCTICO -->
+  <div class="shop-modal-overlay" id="map-modal">
+    <div class="map-modal-container">
+      <div class="shop-header">
+        <h3>MESA DE PLANIFICACIÓN TÁCTICA</h3>
+        <button class="shop-close-btn" onclick="closeMap()">✕</button>
+      </div>
+      <div class="map-body">
+        <img src="Externo/mapa.png" alt="Mapa" class="draggable-map" onerror="this.src='Externo/AB.jpg'">
+      </div>
     </div>
   </div>
 
-  <!-- Verifica el nombre exacto de tu archivo JS en GitHub -->
+  <!-- MODAL DE TIENDA -->
+  <div class="shop-modal-overlay" id="shop-modal">
+    <div class="shop-modal-container">
+      <div class="shop-header">
+        <h3 id="shop-title">MERCADO DE SUMINISTROS</h3>
+        <button class="shop-close-btn" onclick="closeShop()">✕</button>
+      </div>
+      <div class="shop-body" id="shop-items-grid">
+        <!-- Ítems dinámicos -->
+      </div>
+    </div>
+  </div>
+
+  <!-- VENTANA DE CHAT -->
+  <div id="chat-container"></div>
+
+  <!-- BARRA INFERIOR FIJA -->
+  <footer class="fixed-bottom-bar">
+    <div class="footer-left">
+      <span class="footer-status-dot"></span>
+      <span>RED SECURE // TFR SYSTEM ACTIVE</span>
+      <button class="audio-next-btn" onclick="nextTrack()">[ >> PISTA SIGUIENTE ]</button>
+    </div>
+    
+    <div class="footer-pmc-status-container">
+      <div class="pmc-mini-avatar-box">
+        <img src="PMC/Renoir.jpg" alt="Comandante Renoir" class="pmc-mini-img">
+      </div>
+      <div class="pmc-status-text">
+        <span class="pmc-title-text">Comandante Bengamis Renoir</span>
+        <span class="pmc-desc-text">Estado: Vivo | Próximo ataque (Kamona) | Recuperación de marullos</span>
+      </div>
+    </div>
+
+    <div class="footer-right-carousel">
+      <span class="carousel-label">PMC RECON:</span>
+      <div class="carousel-img-container">
+        <img src="PMC/COMGFL.jpeg" alt="PMC 1" class="carousel-slide active">
+        <img src="PMC/Renoir.jpg" alt="PMC 2" class="carousel-slide">
+        <img src="Externo/GFLW.jpg" alt="PMC 3" class="carousel-slide">
+      </div>
+    </div>
+  </footer>
+
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="musica/Arena_Breakout_OST_Daybreak_Main_Theme_KLICKAUD.mp3" type="audio/mpeg">
+  </audio>
+
   <script src="JavaScript.js"></script>
 </body>
 </html>
